@@ -91,6 +91,13 @@ line () {
 ############################################################## Main ##############################################################
 ##################################################################################################################################
 
+# Comandos para la instalacion de java (necesario para desplegar Zookeeper).
+apt-get update
+apt-get install default-jre -y
+apt-get install default-jdk -y
+add-apt-repository ppa:webupd8team/java
+apt-get update
+
 # Creamos directorios necesarios.
 mkdir -p $WORKING_DIRECTORY
 mkdir -p $DATA_DIRECTORY
@@ -126,7 +133,7 @@ $WORKING_DIRECTORY/zookeeper-3.4.10/bin/zkServer.sh start $WORKING_DIRECTORY/zoo
 # Verificamos el estado de los servidores del entorno Zookeeper.
 line
 echo "El estado del servidor $MY_ID de Zookeeper:"
-$WORKING_DIRECTORY/zookeeper-3.4.10/bin/zkServer.sh status $WORKING_DIRECTORY/zookeeper-3.4.10/conf/localhost_zoo.cfg
+echo "$WORKING_DIRECTORY/zookeeper-3.4.10/bin/zkServer.sh status $WORKING_DIRECTORY/zookeeper-3.4.10/conf/localhost_zoo.cfg"
 
 # Lanzar mensajes en consola con instrucciones de ejecución en varias terminales.
 line
