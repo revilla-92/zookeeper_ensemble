@@ -81,18 +81,18 @@ echo $MY_ID > $DATA_DIRECTORY/myid
 cd $WORKING_DIRECTORY
 
 # Extraer tar.gz en el directorio de trabajo y eliminar tras descomprimir.
-mv zookeeper_ensemble/zk/zookeeper-3.4.10.tar.gz .
+mv /zookeeper_ensemble/zk/zookeeper-3.4.10.tar.gz .
 tar -zxvf zookeeper-3.4.10.tar.gz
 rm -rf zookeeper-3.4.10.tar.gz
 
 # Mover las librerias a la carpeta de Zookeeper.
-mv zookeeper_ensemble/lib/* zookeeper-3.4.10/lib/
+mv /zookeeper_ensemble/lib/* $WORKING_DIRECTORY/zookeeper-3.4.10/lib/
 
 # Hacemos source de las librerias a emplear.
 source $WORKING_DIRECTORY/zookeeper-3.4.10/lib/*
 
 # Mover fichero de configuración a la carpeta de Zookeeper
-mv zookeeper_ensemble/conf/localhost_zoo.cfg zookeeper-3.4.10/conf/
+mv /zookeeper_ensemble/conf/localhost_zoo.cfg $WORKING_DIRECTORY/zookeeper-3.4.10/conf/
 
 # Modifcamos el fichero de localhost_zoo.cfg con la configuracion de los servidores de la red.
 sudo sed -i 's/dataDir=DATA_DIRECTORY/dataDir=$DATA_DIRECTORY/g' $WORKING_DIRECTORY/zookeeper-3.4.10/conf/localhost_zoo.cfg
