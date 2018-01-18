@@ -36,10 +36,31 @@ IPs=($IPs)
 # Restauramos el IFS
 IFS=$SAVEIFS
 
+# Imprimimos IPs de las IPs recuperadas por el comando y procesadas correctamente.
 echo "IPs del router (primera) y de los servidores del entorno Zookeeper"
 for (( i=0; i<${#IPs[@]}; i++ ))
 do
 	echo "$i: ${IPs[$i]}"
+done
+
+# La IP en la posicion 0 es la del router, la primera es la propia del HOST que deberemos sustituir por su IP.
+IPs[1]=$(hostname -I)
+
+# Imprimimos IPs nuevamente para comprobar que estan correctamente todas.
+echo "IPs del router (primera) y de los servidores del entorno Zookeeper"
+for (( i=0; i<${#IPs[@]}; i++ ))
+do
+        echo "$i: ${IPs[$i]}"
+done
+
+# Ordenamos numericamente las IPs.
+IPs=( $( printf "%s\n" "${IPs[@]}" | sort -n ) )
+
+# Imprimimos las IPs ordenadas numericamente.
+echo "IPs del router (primera) y de los servidores del entorno Zookeeper"
+for (( i=0; i<${#IPs[@]}; i++ ))
+do
+        echo "$i: ${IPs[$i]}"
 done
 
 
