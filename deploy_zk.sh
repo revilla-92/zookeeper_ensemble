@@ -88,9 +88,6 @@ rm -rf zookeeper-3.4.10.tar.gz
 # Mover las librerias a la carpeta de Zookeeper.
 mv /zookeeper_ensemble/lib/* $WORKING_DIRECTORY/zookeeper-3.4.10/lib/
 
-# Hacemos source de las librerias a emplear.
-source $WORKING_DIRECTORY/zookeeper-3.4.10/lib/*
-
 # Mover fichero de configuración a la carpeta de Zookeeper
 mv /zookeeper_ensemble/conf/localhost_zoo.cfg $WORKING_DIRECTORY/zookeeper-3.4.10/conf/
 
