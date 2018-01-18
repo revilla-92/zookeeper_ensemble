@@ -92,10 +92,10 @@ mv /zookeeper_ensemble/lib/* $WORKING_DIRECTORY/zookeeper-3.4.10/lib/
 mv /zookeeper_ensemble/conf/localhost_zoo.cfg $WORKING_DIRECTORY/zookeeper-3.4.10/conf/
 
 # Modifcamos el fichero de localhost_zoo.cfg con la configuracion de los servidores de la red.
-sudo sed -i 's/dataDir=DATA_DIRECTORY/dataDir=$DATA_DIRECTORY/g' $WORKING_DIRECTORY/zookeeper-3.4.10/conf/localhost_zoo.cfg
-sudo sed -i 's/server.1=localhost:2888:3888/server.1=${IPs[1]}:2888:3888/g' $WORKING_DIRECTORY/zookeeper-3.4.10/conf/localhost_zoo.cfg
-sudo sed -i 's/server.2=localhost:2889:3889/server.2=${IPs[2]}:2889:3889/g' $WORKING_DIRECTORY/zookeeper-3.4.10/conf/localhost_zoo.cfg
-sudo sed -i 's/server.3=localhost:2890:3890/server.3=${IPs[3]}:2890:3890/g' $WORKING_DIRECTORY/zookeeper-3.4.10/conf/localhost_zoo.cfg
+sed -i "s#dataDir=DATA_DIRECTORY#dataDir=${DATA_DIRECTORY}#g" $WORKING_DIRECTORY/zookeeper-3.4.10/conf/localhost_zoo.cfg
+sed -i "s/server.1=localhost:2888:3888/server.1=${IPs[1]}:2888:3888/g" $WORKING_DIRECTORY/zookeeper-3.4.10/conf/localhost_zoo.cfg
+sed -i "s/server.2=localhost:2889:3889/server.2=${IPs[2]}:2889:3889/g" $WORKING_DIRECTORY/zookeeper-3.4.10/conf/localhost_zoo.cfg
+sed -i "s/server.3=localhost:2890:3890/server.3=${IPs[3]}:2890:3890/g" $WORKING_DIRECTORY/zookeeper-3.4.10/conf/localhost_zoo.cfg
 
 # Arrancar los servidores que conformarán el entorno zookeeper.
 line
