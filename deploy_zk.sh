@@ -94,9 +94,6 @@ line () {
 # Comandos para la instalacion de java (necesario para desplegar Zookeeper).
 apt-get update
 apt-get install default-jre -y
-apt-get install default-jdk -y
-add-apt-repository ppa:webupd8team/java
-apt-get update
 
 # Creamos directorios necesarios.
 mkdir -p $WORKING_DIRECTORY
