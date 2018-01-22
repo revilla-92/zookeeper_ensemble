@@ -8,7 +8,7 @@ set -e
 ##################################################################################################################################
 
 # Parámetro que indica el directorio en que se va a trabajar.
-WORKING_DIRECTORY=/tmp/CNVR
+WORKING_DIRECTORY=/www/CNVR
 
 # Parámetro que indica el directorio en que se va a tener la ID del servidor (info).
 DATA_DIRECTORY=$WORKING_DIRECTORY/z1
