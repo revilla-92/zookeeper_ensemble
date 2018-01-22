@@ -2,6 +2,10 @@
 # Salir del script si alguna de las ejecuciones falla.
 set -e
 
+# Comandos para la instalacion de java y arp-scan (necesario para desplegar Zookeeper).
+apt-get update
+apt-get install arp-scan -y
+apt-get install default-jre -y
 
 ##################################################################################################################################
 ##################################################### Parametros por defecto #####################################################
@@ -91,9 +95,6 @@ line () {
 ############################################################## Main ##############################################################
 ##################################################################################################################################
 
-# Comandos para la instalacion de java (necesario para desplegar Zookeeper).
-apt-get update
-apt-get install default-jre -y
 
 # Creamos directorios necesarios.
 mkdir -p $WORKING_DIRECTORY
